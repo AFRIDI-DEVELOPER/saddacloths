@@ -431,7 +431,7 @@ export default function App() {
             </div>
             
             <h1 className="hero-title">
-              100% Original Branded Menswear at <span className="gold-text">saddacloths</span>
+              Original Branded Menswear at <span className="gold-text">saddacloths</span>
             </h1>
 
             <p className="hero-description">
