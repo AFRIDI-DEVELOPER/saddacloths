@@ -1110,26 +1110,6 @@ export default function App() {
               <a href="#home" style={{ color: 'var(--text-dim)' }}>Privacy Policy</a>
               <a href="#home" style={{ color: 'var(--text-dim)' }}>Terms of Service</a>
               <a href="#media" style={{ color: 'var(--text-dim)' }}>Media Relations</a>
-              <button 
-                onClick={() => setIsAdminOpen(true)} 
-                style={{ 
-                  background: 'rgba(212, 175, 55, 0.12)', 
-                  border: '1px solid rgba(212, 175, 55, 0.35)', 
-                  borderRadius: '4px', 
-                  padding: '4px 10px', 
-                  color: 'var(--gold-light)', 
-                  cursor: 'pointer', 
-                  fontSize: '0.75rem', 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  gap: '6px' 
-                }} 
-                id="footer-admin-btn"
-                title="Open Showcase Admin Panel"
-              >
-                <Settings size={12} />
-                <span>Admin Panel</span>
-              </button>
             </div>
           </div>
         </div>
