@@ -602,7 +602,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Interactive Map & Appointment Booking */}
+          {/* Interactive Map Box */}
           <div className="map-visual-box">
             {/* Embedded Interactive Map representation */}
             <iframe 
@@ -619,63 +619,6 @@ export default function App() {
                 <strong style={{ fontSize: '0.85rem' }}>saddacloths Store</strong>
                 <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Chhota Golchakkar, Pachgaon, Tauru</div>
               </div>
-            </div>
-
-            {/* Quick Consultation Form Box */}
-            <div style={{ padding: '24px', background: 'var(--bg-surface)', borderTop: '1px solid var(--border-gold)' }}>
-              <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: '8px', color: '#fff' }}>
-                Book Personal Fitting Appointment
-              </h4>
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '14px' }}>
-                Reserve a private styling lounge with our master designer.
-              </p>
-
-              {bookingSubmitted ? (
-                <div style={{ padding: '12px', background: 'rgba(74, 222, 128, 0.1)', border: '1px solid #4ade80', borderRadius: '8px', color: '#4ade80', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Check size={18} />
-                  <span>Appointment Confirmed! Our team will contact you at {bookingData.phone}.</span>
-                </div>
-              ) : (
-                <form onSubmit={handleBookingSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                  <input 
-                    type="text" 
-                    placeholder="Your Full Name" 
-                    required 
-                    value={bookingData.name}
-                    onChange={(e) => setBookingData({...bookingData, name: e.target.value})}
-                    className="newsletter-input" 
-                  />
-                  <input 
-                    type="tel" 
-                    placeholder="Mobile Number" 
-                    required 
-                    value={bookingData.phone}
-                    onChange={(e) => setBookingData({...bookingData, phone: e.target.value})}
-                    className="newsletter-input" 
-                  />
-                  <select 
-                    className="newsletter-input"
-                    value={bookingData.outfitInterest}
-                    onChange={(e) => setBookingData({...bookingData, outfitInterest: e.target.value})}
-                  >
-                    <option value="">Select Interested Category</option>
-                    <option value="Men's Sherwani">Men's Sherwani / Kurta</option>
-                    <option value="Bridal Lehenga">Bridal Lehenga & Gown</option>
-                    <option value="Pure Silk Saree">Pure Silk Saree</option>
-                    <option value="Festive Wear">Festive Family Ensemble</option>
-                  </select>
-                  <input 
-                    type="date" 
-                    className="newsletter-input"
-                    value={bookingData.date}
-                    onChange={(e) => setBookingData({...bookingData, date: e.target.value})}
-                  />
-                  <button type="submit" className="cta-button" style={{ gridColumn: 'span 2', justifyContent: 'center' }}>
-                    <Calendar size={16} />
-                    <span>Confirm Free VIP Fitting</span>
-                  </button>
-                </form>
-              )}
             </div>
           </div>
         </div>
@@ -1131,7 +1074,7 @@ export default function App() {
               <ul className="footer-links">
                 <li><a href="#location" className="footer-link">Flagship Boutique</a></li>
                 <li><a href="#location" className="footer-link">Directions & Map</a></li>
-                <li><a href="#location" className="footer-link">Book VIP Appointment</a></li>
+                <li><a href="#location" className="footer-link">Store Location & Hours</a></li>
                 <li><a href="#craftsmanship" className="footer-link">Master Weaving Artisans</a></li>
                 <li><a href="tel:08930255007" className="footer-link">Call Store: 08930255007</a></li>
                 <li>
