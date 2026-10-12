@@ -541,9 +541,9 @@ export default function App() {
                   <div>
                     <div className="store-label">Physical Address</div>
                     <div className="store-value">
-                      <strong>saddacloths Heritage Flagship</strong><br />
-                      Shop No. 14-16, Royal Heritage Complex, Main Textile Boulevard,<br />
-                      Opposite Grand Plaza, Connaught Circle, New Delhi 110001
+                      <strong>saddacloths</strong><br />
+                      Shop Number 07 Nuh Rd Buraka, Chhota Golchakkar,<br />
+                      Pachgaon, Tauru, Haryana 122105
                     </div>
                   </div>
                 </div>
@@ -556,7 +556,7 @@ export default function App() {
                     <div className="store-label">Store Hours</div>
                     <div className="store-value">
                       Monday to Saturday: <strong>10:30 AM – 9:00 PM</strong><br />
-                      Sunday: <strong>11:00 AM – 8:00 PM</strong> (Walk-ins & Appointments Welcome)
+                      Sunday: <strong>11:00 AM – 8:00 PM</strong> (Walk-ins & Visits Welcome)
                     </div>
                   </div>
                 </div>
@@ -568,8 +568,8 @@ export default function App() {
                   <div>
                     <div className="store-label">Direct Contact & WhatsApp</div>
                     <div className="store-value">
-                      Phone: <a href="tel:+918930255007" style={{ color: 'var(--gold-light)' }}>+91 89302 55007</a><br />
-                      Boutique Support: <a href="mailto:boutique@saddacloths.com" style={{ color: 'var(--gold-light)' }}>boutique@saddacloths.com</a>
+                      Phone: <a href="tel:08930255007" style={{ color: 'var(--gold-light)' }}>08930255007</a><br />
+                      WhatsApp: <a href="https://wa.me/918930255007" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold-light)' }}>+91 89302 55007</a>
                     </div>
                   </div>
                 </div>
@@ -578,7 +578,7 @@ export default function App() {
 
             <div className="store-buttons">
               <a 
-                href="https://maps.google.com/?q=saddacloths+Luxury+Fashion+Store" 
+                href="https://maps.app.goo.gl/8htLGcLYanC4cJ959" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="cta-button"
@@ -590,7 +590,7 @@ export default function App() {
               </a>
 
               <a 
-                href="https://wa.me/918930255007?text=Hi%20saddacloths%2C%20I%20am%20planning%20to%20visit%20your%20store%20today" 
+                href="https://wa.me/918930255007?text=Hi%20saddacloths%2C%20I%20am%20planning%20to%20visit%20your%20store" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="cta-secondary"
@@ -607,7 +607,7 @@ export default function App() {
             {/* Embedded Interactive Map representation */}
             <iframe 
               title="saddacloths Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.384667954992!2d77.214952!3d28.632425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b8d00001%3A0xb3a824490f8f1766!2sConnaught%20Place%2C%20New%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+              src="https://maps.google.com/maps?q=Shop+Number+07+Nuh+Rd+Buraka,+Chhota+Golchakkar,+Pachgaon,+Tauru,+Haryana+122105&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               className="interactive-map-frame"
               allowFullScreen="" 
               loading="lazy"
@@ -616,8 +616,8 @@ export default function App() {
             <div className="map-overlay-badge">
               <MapPin size={18} color="#d4af37" />
               <div>
-                <strong style={{ fontSize: '0.85rem' }}>saddacloths Flagship</strong>
-                <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Centrally Located • Valet Parking Available</div>
+                <strong style={{ fontSize: '0.85rem' }}>saddacloths Store</strong>
+                <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Chhota Golchakkar, Pachgaon, Tauru</div>
               </div>
             </div>
 
@@ -1133,7 +1133,7 @@ export default function App() {
                 <li><a href="#location" className="footer-link">Directions & Map</a></li>
                 <li><a href="#location" className="footer-link">Book VIP Appointment</a></li>
                 <li><a href="#craftsmanship" className="footer-link">Master Weaving Artisans</a></li>
-                <li><a href="tel:+918930255007" className="footer-link">Call Store: +91 89302 55007</a></li>
+                <li><a href="tel:08930255007" className="footer-link">Call Store: 08930255007</a></li>
                 <li>
                   <button 
                     onClick={() => setIsAdminOpen(true)} 
