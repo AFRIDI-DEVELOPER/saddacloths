@@ -635,7 +635,7 @@ export default function App() {
         <div className="social-cards-grid">
           {/* Instagram */}
           <a 
-            href="https://instagram.com" 
+            href="https://www.instagram.com/sadakatclothing/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="social-card"
@@ -645,8 +645,8 @@ export default function App() {
               <Instagram size={28} />
             </div>
             <div className="social-title">Instagram</div>
-            <div className="social-handle">@saddacloths</div>
-            <div className="social-tagline">Runway Reels & Bridal Looks</div>
+            <div className="social-handle">@sadakatclothing</div>
+            <div className="social-tagline">Latest Branded Arrivals & Reels</div>
           </a>
 
           {/* WhatsApp Direct */}
@@ -661,8 +661,8 @@ export default function App() {
               <MessageCircle size={28} />
             </div>
             <div className="social-title">WhatsApp Studio</div>
-            <div className="social-handle">+91 98765 43210</div>
-            <div className="social-tagline">Instant Stylist Support & Orders</div>
+            <div className="social-handle">+91 89302 55007</div>
+            <div className="social-tagline">Instant Product Enquiries & Orders</div>
           </a>
 
           {/* Facebook */}
