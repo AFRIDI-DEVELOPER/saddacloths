@@ -427,7 +427,7 @@ export default function App() {
           <div className="hero-content">
             <div className="hero-tag">
               <Sparkles size={14} color="#d4af37" />
-              <span>Handcrafted Heritage Perfection</span>
+              <span>100% Guaranteed Original Cloths</span>
             </div>
             
             <h1 className="hero-title">
