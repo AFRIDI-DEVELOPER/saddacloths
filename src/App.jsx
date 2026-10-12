@@ -1081,11 +1081,10 @@ export default function App() {
                   <button 
                     onClick={() => setIsAdminOpen(true)} 
                     className="footer-link" 
-                    style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', font: 'inherit', color: 'var(--gold-light)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                    style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', font: 'inherit', textAlign: 'left' }}
                     id="footer-admin-link"
                   >
-                    <Settings size={14} />
-                    <span>Showcase Admin Panel</span>
+                    Admin
                   </button>
                 </li>
               </ul>
