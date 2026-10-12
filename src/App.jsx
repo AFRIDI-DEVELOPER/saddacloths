@@ -329,7 +329,11 @@ export default function App() {
         <div className="navbar-container">
           {/* Logo with saddacloths */}
           <a href="#" className="brand-logo" id="brand-logo">
-            <div className="logo-icon">S</div>
+            <img 
+              src="/images/watermelon_logo.png" 
+              alt="saddacloths logo" 
+              className="logo-watermelon" 
+            />
             <div className="logo-text-group">
               <span className="brand-name gold-text">saddacloths</span>
               <span className="brand-sub">100% ORIGINAL BRANDED READYMADE</span>
@@ -1047,7 +1051,11 @@ export default function App() {
           <div className="footer-grid">
             <div>
               <a href="#" className="brand-logo">
-                <div className="logo-icon">S</div>
+                <img 
+                  src="/images/watermelon_logo.png" 
+                  alt="saddacloths logo" 
+                  className="logo-watermelon" 
+                />
                 <div className="logo-text-group">
                   <span className="brand-name gold-text">saddacloths</span>
                   <span className="brand-sub">100% ORIGINAL BRANDED READYMADE</span>
