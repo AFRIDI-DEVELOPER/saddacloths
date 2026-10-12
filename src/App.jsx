@@ -332,7 +332,7 @@ export default function App() {
             <div className="logo-icon">S</div>
             <div className="logo-text-group">
               <span className="brand-name gold-text">saddacloths</span>
-              <span className="brand-sub">LUXURY TEXTILES & COUTURE</span>
+              <span className="brand-sub">100% ORIGINAL BRANDED READYMADE</span>
             </div>
           </a>
 
@@ -431,11 +431,11 @@ export default function App() {
             </div>
             
             <h1 className="hero-title">
-              Elegance Woven with Royalty at <span className="gold-text">saddacloths</span>
+              100% Original Branded Menswear at <span className="gold-text">saddacloths</span>
             </h1>
 
             <p className="hero-description">
-              Welcome to <strong>saddacloths</strong> — where artisanal Indian craftsmanship harmonizes with modern couture. Discover handcrafted sherwanis, opulent bridal lehengas, authentic pure silks, and festive menswear designed to turn every celebration into an unforgettable spectacle.
+              Welcome to <strong>saddacloths</strong> — your premier destination for 100% guaranteed original branded readymade clothing. Discover premium casual & formal shirts, trending t-shirts, authentic branded jeans, comfortable lowers, and stylish men's accessories curated for everyday comfort and sharp style.
             </p>
 
             <div className="hero-actions">
@@ -452,31 +452,31 @@ export default function App() {
             <div className="hero-stats">
               <div>
                 <div className="stat-number">100%</div>
-                <div className="stat-label">Pure Silk & Fabrics</div>
+                <div className="stat-label">Original Branded</div>
               </div>
               <div>
-                <div className="stat-number">25+</div>
-                <div className="stat-label">Years Master Weavers</div>
+                <div className="stat-number">Top</div>
+                <div className="stat-label">Shirts, Jeans & Lowers</div>
               </div>
               <div>
-                <div className="stat-number">15K+</div>
-                <div className="stat-label">Happy Royal Patrons</div>
+                <div className="stat-number">Complete</div>
+                <div className="stat-label">Men's Accessories</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust & Craft Highlights */}
+      {/* Trust & Highlights */}
       <div className="features-strip" id="craftsmanship">
         <div className="features-grid">
           <div className="feature-box">
             <div className="feature-icon-wrapper">
-              <Scissors size={24} />
+              <ShieldCheck size={24} />
             </div>
             <div>
-              <div className="feature-title">Bespoke Fit Guarantee</div>
-              <div className="feature-desc">Custom tailoring by in-house master artisans.</div>
+              <div className="feature-title">100% Original Brands</div>
+              <div className="feature-desc">Guaranteed authentic branded garments with genuine tags.</div>
             </div>
           </div>
 
@@ -485,28 +485,28 @@ export default function App() {
               <Sparkles size={24} />
             </div>
             <div>
-              <div className="feature-title">Authentic Fabrics</div>
-              <div className="feature-desc">Pure mulberry silks, fine velvets & real zari.</div>
+              <div className="feature-title">Fresh Readymade Arrivals</div>
+              <div className="feature-desc">Latest trends in casual shirts, t-shirts, jeans & track lowers.</div>
             </div>
           </div>
 
           <div className="feature-box">
             <div className="feature-icon-wrapper">
-              <ShieldCheck size={24} />
+              <ShoppingBag size={24} />
             </div>
             <div>
-              <div className="feature-title">Heirloom Quality</div>
-              <div className="feature-desc">Timeless needlecraft made to endure generations.</div>
+              <div className="feature-title">Men's Accessories</div>
+              <div className="feature-desc">Complete your look with belts, wallets & essential styling picks.</div>
             </div>
           </div>
 
           <div className="feature-box">
             <div className="feature-icon-wrapper">
-              <Truck size={24} />
+              <Star size={24} />
             </div>
             <div>
-              <div className="feature-title">Worldwide Delivery</div>
-              <div className="feature-desc">Insured luxury shipping across the globe.</div>
+              <div className="feature-title">Best Value & Fit</div>
+              <div className="feature-desc">Unbeatable prices on 100% genuine readymade menswear.</div>
             </div>
           </div>
         </div>
@@ -1107,22 +1107,22 @@ export default function App() {
                 <div className="logo-icon">S</div>
                 <div className="logo-text-group">
                   <span className="brand-name gold-text">saddacloths</span>
-                  <span className="brand-sub">LUXURY TEXTILES & COUTURE</span>
+                  <span className="brand-sub">100% ORIGINAL BRANDED READYMADE</span>
                 </div>
               </a>
               <p className="footer-about-text">
-                Crafting peerless ethnic wear, bespoke bridal ensembles, and handwoven royal textiles. Designed with heritage, tailored for majesty.
+                Your trusted seller for 100% guaranteed original branded readymade clothing. Offering premium shirts, t-shirts, authentic jeans, comfortable track lowers, and men's accessories.
               </p>
             </div>
 
             <div>
               <h4 className="footer-heading">Collections</h4>
               <ul className="footer-links">
-                <li><a href="#collections" className="footer-link">Groom's Sherwanis</a></li>
-                <li><a href="#collections" className="footer-link">Bridal Lehengas</a></li>
-                <li><a href="#collections" className="footer-link">Pure Kanchipuram Silks</a></li>
-                <li><a href="#collections" className="footer-link">Festive Kurta Ensembles</a></li>
-                <li><a href="#collections" className="footer-link">Indo-Western Fusion</a></li>
+                <li><a href="#collections" className="footer-link">Branded Shirts (Casual & Formal)</a></li>
+                <li><a href="#collections" className="footer-link">Trending T-Shirts & Polos</a></li>
+                <li><a href="#collections" className="footer-link">Original Branded Jeans</a></li>
+                <li><a href="#collections" className="footer-link">Comfortable Lowers & Trackpants</a></li>
+                <li><a href="#collections" className="footer-link">Men's Styling Accessories</a></li>
               </ul>
             </div>
 
