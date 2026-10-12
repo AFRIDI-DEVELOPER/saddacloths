@@ -33,35 +33,35 @@ import './App.css';
 const DEFAULT_HERO_SLIDES = [
   {
     id: 'slide-1',
-    image: '/images/hero_banner.jpg',
+    image: './images/hero_banner.jpg',
     title: 'Signature Imperial Couple Suite',
     subtitle: 'saddacloths Autumn-Winter Preview',
     tag: 'Signature Couture Suite'
   },
   {
     id: 'slide-2',
-    image: '/images/men_sherwani.jpg',
+    image: './images/men_sherwani.jpg',
     title: 'Royal Sapphire Velvet Sherwani',
     subtitle: 'Handcrafted Zardozi & Antique Dabka',
     tag: 'Bespoke Groom Masterpiece'
   },
   {
     id: 'slide-3',
-    image: '/images/bridal_lehenga.jpg',
+    image: './images/bridal_lehenga.jpg',
     title: 'Gulnar Crimson Heritage Lehenga',
     subtitle: 'Pure Raw Silk with Heirloom Gotapatti',
     tag: 'Bridal Heritage Glory'
   },
   {
     id: 'slide-4',
-    image: '/images/silk_saree.jpg',
+    image: './images/silk_saree.jpg',
     title: 'Emerald Mayura Kanchipuram Silk',
     subtitle: 'Certified Handloom 24K Gold Zari Weave',
     tag: 'GI Certified Silk'
   },
   {
     id: 'slide-5',
-    image: '/images/men_kurta.jpg',
+    image: './images/men_kurta.jpg',
     title: 'Mint Sovereign Silk Kurta Set',
     subtitle: 'Tonal Resham Needlework with Silk Dupatta',
     tag: 'Festive Luxury Wear'
@@ -101,7 +101,7 @@ const CLOTH_COLLECTIONS = [
     tag: 'Bespoke Masterpiece',
     rating: 4.9,
     reviews: 84,
-    image: '/images/men_sherwani.jpg',
+    image: './images/men_sherwani.jpg',
     description: 'Masterfully tailored in midnight sapphire royal velvet, featuring opulent gold zardozi motifs and antique dabka embroidery on collar and hems.',
     fabric: 'Pure Royal Velvet with Banarasi Silk Churidar',
     embroidery: 'Handcrafted Gold Zari & Resham Dabka'
@@ -115,7 +115,7 @@ const CLOTH_COLLECTIONS = [
     tag: 'Bridal Heritage',
     rating: 5.0,
     reviews: 112,
-    image: '/images/bridal_lehenga.jpg',
+    image: './images/bridal_lehenga.jpg',
     description: 'An ethereal crimson red masterpiece adorned with intricate royal floral jaal, pure metallic zari accents, and an ornate handcrafted veil.',
     fabric: 'Pure Raw Silk with Sheer Organza Dupatta',
     embroidery: 'Authentic Zardozi, Cutdana & Sequin Detailing'
@@ -129,7 +129,7 @@ const CLOTH_COLLECTIONS = [
     tag: 'GI Certified Silk',
     rating: 4.8,
     reviews: 95,
-    image: '/images/silk_saree.jpg',
+    image: './images/silk_saree.jpg',
     description: 'Woven with centuries-old pit-loom traditions, this regal emerald saree highlights grand gold zari pallu with peacock and floral heritage medallions.',
     fabric: '100% Mulberry Kanchipuram Silk',
     embroidery: 'Pure 2G Gold Zari Weave'
@@ -143,7 +143,7 @@ const CLOTH_COLLECTIONS = [
     tag: 'Modern Classic',
     rating: 4.9,
     reviews: 67,
-    image: '/images/men_kurta.jpg',
+    image: './images/men_kurta.jpg',
     description: 'Subtle pastel mint green chanderi silk kurta paired with an ivory Nehru bandi jacket featuring tonal floral thread embroidery.',
     fabric: 'Chanderi Silk & Handspun Linen Blend',
     embroidery: 'Tonal Resham Needlework'
@@ -157,7 +157,7 @@ const CLOTH_COLLECTIONS = [
     tag: 'Couture Suite',
     rating: 5.0,
     reviews: 140,
-    image: '/images/hero_banner.jpg',
+    image: './images/hero_banner.jpg',
     description: 'Harmonious coordinating wedding couture pairing a structured bandhgala sherwani with a matching hand-embellished heirloom drape.',
     fabric: 'Matka Silk & Velvet Hybrid',
     embroidery: 'Gilded Heritage Gold Threadwork'
@@ -330,7 +330,7 @@ export default function App() {
           {/* Logo with saddacloths */}
           <a href="#" className="brand-logo" id="brand-logo">
             <img 
-              src="/images/watermelon_logo.png" 
+              src="./images/watermelon_logo.png" 
               alt="saddacloths logo" 
               className="logo-watermelon" 
             />
@@ -1052,7 +1052,7 @@ export default function App() {
             <div>
               <a href="#" className="brand-logo">
                 <img 
-                  src="/images/watermelon_logo.png" 
+                  src="./images/watermelon_logo.png" 
                   alt="saddacloths logo" 
                   className="logo-watermelon" 
                 />
