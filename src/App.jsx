@@ -28,6 +28,7 @@ import {
   Image as ImageIcon
 } from 'lucide-react';
 import './App.css';
+import { supabase } from './supabase';
 
 const BASE = import.meta.env.BASE_URL || '/';
 
@@ -181,20 +182,9 @@ export default function App() {
   const [bookingData, setBookingData] = useState({ name: '', phone: '', outfitInterest: '', date: '' });
 
   // Hero Slider & Admin Panel State
-  const [slides, setSlides] = useState(() => {
-    try {
-      const saved = localStorage.getItem('saddacloths_hero_slides');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed.map(s => ({ ...s, image: normalizeImagePath(s.image) }));
-        }
-      }
-    } catch {
-      // fallback
-    }
-    return DEFAULT_HERO_SLIDES;
-  });
+  const [slides, setSlides] = useState(DEFAULT_HERO_SLIDES);
+  const [isLoadingSlides, setIsLoadingSlides] = useState(true);
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
 
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -214,15 +204,39 @@ export default function App() {
   });
   const [imagePreview, setImagePreview] = useState('');
 
-  // Persist slides to localStorage
-  const saveSlides = (newSlides) => {
-    setSlides(newSlides);
-    try {
-      localStorage.setItem('saddacloths_hero_slides', JSON.stringify(newSlides));
-    } catch {
-      // quota safeguard
-    }
-  };
+  // Fetch slides from Supabase on mount
+  useEffect(() => {
+    const fetchSlides = async () => {
+      setIsLoadingSlides(true);
+      try {
+        const { data, error } = await supabase
+          .from('hero_slides')
+          .select('*')
+          .order('created_at', { ascending: true });
+
+        if (!error && data && data.length > 0) {
+          setSlides(
+            data.map(row => ({
+              id: row.id,
+              image: row.image_url,
+              title: row.title,
+              subtitle: row.subtitle || '',
+              tag: row.tag || ''
+            }))
+          );
+        } else {
+          // No slides in DB yet — show local defaults
+          setSlides(DEFAULT_HERO_SLIDES);
+        }
+      } catch {
+        setSlides(DEFAULT_HERO_SLIDES);
+      }
+      setIsLoadingSlides(false);
+    };
+    fetchSlides();
+    // Clear stale localStorage data now that Supabase is the source of truth
+    try { localStorage.removeItem('saddacloths_hero_slides'); } catch { /* ignore */ }
+  }, []);
 
   // Auto-scroll Timer
   useEffect(() => {
@@ -257,8 +271,8 @@ export default function App() {
     setCurrentSlideIndex(idx);
   };
 
-  // Image file upload handler (converts user selected photo to DataURL)
-  const handleFileUpload = (e) => {
+  // Image file upload handler — uploads directly to Supabase Storage
+  const handleFileUpload = async (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -267,18 +281,34 @@ export default function App() {
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const dataUrl = event.target?.result;
-      setNewSlide(prev => ({ ...prev, image: dataUrl }));
-      setImagePreview(dataUrl);
-      showToast('Photo loaded! Add a title and click "Add Cloth to Showcase".');
-    };
-    reader.readAsDataURL(file);
+    setIsUploadingImage(true);
+    showToast('Uploading image to cloud storage...');
+
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+    const fileName = `${Date.now()}_${safeName}`;
+
+    const { data: uploadData, error: uploadError } = await supabase.storage
+      .from('hero-images')
+      .upload(fileName, file, { cacheControl: '3600', upsert: false });
+
+    if (uploadError) {
+      showToast(`Upload failed: ${uploadError.message}`);
+      setIsUploadingImage(false);
+      return;
+    }
+
+    const { data: { publicUrl } } = supabase.storage
+      .from('hero-images')
+      .getPublicUrl(uploadData.path);
+
+    setNewSlide(prev => ({ ...prev, image: publicUrl }));
+    setImagePreview(publicUrl);
+    setIsUploadingImage(false);
+    showToast('Image uploaded! Add a title and click "Add Cloth to Showcase".');
   };
 
-  // Add new cloth slide
-  const handleAddSlide = (e) => {
+  // Add new cloth slide — saves to Supabase DB
+  const handleAddSlide = async (e) => {
     e.preventDefault();
     if (!newSlide.image) {
       showToast('Please upload an image or provide an image URL first.');
@@ -289,36 +319,59 @@ export default function App() {
       return;
     }
 
-    const added = {
-      id: `slide-${Date.now()}`,
-      image: newSlide.image,
+    const id = `slide-${Date.now()}`;
+    const rowToInsert = {
+      id,
+      image_url: newSlide.image,
       title: newSlide.title.trim(),
       subtitle: newSlide.subtitle.trim() || 'saddacloths Handcrafted Couture',
       tag: newSlide.tag.trim() || 'Exclusive Collection'
     };
 
-    const updated = [...slides, added];
-    saveSlides(updated);
+    const { error } = await supabase.from('hero_slides').insert([rowToInsert]);
+    if (error) {
+      showToast(`Error saving slide: ${error.message}`);
+      return;
+    }
+
+    const slideForState = {
+      id,
+      image: rowToInsert.image_url,
+      title: rowToInsert.title,
+      subtitle: rowToInsert.subtitle,
+      tag: rowToInsert.tag
+    };
+
+    const updated = [...slides, slideForState];
+    setSlides(updated);
     setCurrentSlideIndex(updated.length - 1);
     setNewSlide({ title: '', subtitle: '', tag: 'Royal Collection', image: '' });
     setImagePreview('');
-    showToast(`Added "${added.title}" to hero showcase! Showing ${updated.length} cloths.`);
+    showToast(`Added "${rowToInsert.title}" to hero showcase! Showing ${updated.length} cloths.`);
   };
 
-  // Delete slide
-  const handleDeleteSlide = (id) => {
+  // Delete slide — removes from Supabase DB (default slides are local only)
+  const handleDeleteSlide = async (id) => {
     if (slides.length <= 1) {
       showToast('Showcase must keep at least 1 cloth image.');
       return;
     }
-    const updated = slides.filter(s => s.id !== id);
-    saveSlides(updated);
+    const isDefault = DEFAULT_HERO_SLIDES.some(s => s.id === id);
+    if (!isDefault) {
+      const { error } = await supabase.from('hero_slides').delete().eq('id', id);
+      if (error) {
+        showToast(`Error deleting: ${error.message}`);
+        return;
+      }
+    }
+    setSlides(prev => prev.filter(s => s.id !== id));
     showToast('Cloth removed from showcase.');
   };
 
-  // Reset to default 5 royal cloths
-  const handleResetDefaultSlides = () => {
-    saveSlides(DEFAULT_HERO_SLIDES);
+  // Reset to default 5 royal cloths — clears all Supabase DB rows
+  const handleResetDefaultSlides = async () => {
+    await supabase.from('hero_slides').delete().not('id', 'is', null);
+    setSlides(DEFAULT_HERO_SLIDES);
     setCurrentSlideIndex(0);
     showToast('Restored 5 default royal showcase cloths!');
   };
@@ -879,13 +932,24 @@ export default function App() {
                         onChange={handleFileUpload} 
                         className="admin-file-hidden"
                         id="admin-file-input"
+                        disabled={isUploadingImage}
                       />
                       <div className="admin-upload-content">
-                        <Upload size={28} color="#d4af37" />
-                        <div className="admin-upload-text">
-                          <strong>Click here to choose photo from device</strong> (or drag & drop)
-                        </div>
-                        <div className="admin-upload-hint">Supports high resolution JPG, PNG, WEBP files</div>
+                        {isUploadingImage ? (
+                          <>
+                            <div style={{ fontSize: '2rem' }}>⏳</div>
+                            <div className="admin-upload-text"><strong>Uploading to cloud storage...</strong></div>
+                            <div className="admin-upload-hint">Please wait, image is being saved to Supabase</div>
+                          </>
+                        ) : (
+                          <>
+                            <Upload size={28} color="#d4af37" />
+                            <div className="admin-upload-text">
+                              <strong>Click here to choose photo from device</strong> (or drag & drop)
+                            </div>
+                            <div className="admin-upload-hint">Supports high resolution JPG, PNG, WEBP files</div>
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -970,7 +1034,7 @@ export default function App() {
                   <button 
                     type="submit" 
                     className="admin-submit-btn"
-                    disabled={!newSlide.image || !newSlide.title.trim()}
+                    disabled={!newSlide.image || !newSlide.title.trim() || isUploadingImage}
                     id="admin-add-cloth-submit"
                   >
                     <Plus size={18} />
