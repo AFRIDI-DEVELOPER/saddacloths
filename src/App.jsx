@@ -185,6 +185,7 @@ export default function App() {
   const [slides, setSlides] = useState(DEFAULT_HERO_SLIDES);
   const [isLoadingSlides, setIsLoadingSlides] = useState(true);
   const [isUploadingImage, setIsUploadingImage] = useState(false);
+  const [confirmDeleteId, setConfirmDeleteId] = useState(null);
 
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -225,7 +226,15 @@ export default function App() {
             }))
           );
         } else {
-          // No slides in DB yet — show local defaults
+          // No slides in DB yet — seed defaults into Supabase so deletes persist
+          const defaultsToInsert = DEFAULT_HERO_SLIDES.map(s => ({
+            id: s.id,
+            image_url: s.image,
+            title: s.title,
+            subtitle: s.subtitle,
+            tag: s.tag
+          }));
+          await supabase.from('hero_slides').insert(defaultsToInsert);
           setSlides(DEFAULT_HERO_SLIDES);
         }
       } catch {
@@ -350,27 +359,35 @@ export default function App() {
     showToast(`Added "${rowToInsert.title}" to hero showcase! Showing ${updated.length} cloths.`);
   };
 
-  // Delete slide — removes from Supabase DB (default slides are local only)
+  // Delete slide — permanently removes from Supabase DB
   const handleDeleteSlide = async (id) => {
     if (slides.length <= 1) {
       showToast('Showcase must keep at least 1 cloth image.');
+      setConfirmDeleteId(null);
       return;
     }
-    const isDefault = DEFAULT_HERO_SLIDES.some(s => s.id === id);
-    if (!isDefault) {
-      const { error } = await supabase.from('hero_slides').delete().eq('id', id);
-      if (error) {
-        showToast(`Error deleting: ${error.message}`);
-        return;
-      }
+    const { error } = await supabase.from('hero_slides').delete().eq('id', id);
+    if (error) {
+      showToast(`Error deleting: ${error.message}`);
+      setConfirmDeleteId(null);
+      return;
     }
     setSlides(prev => prev.filter(s => s.id !== id));
+    setConfirmDeleteId(null);
     showToast('Cloth removed from showcase.');
   };
 
-  // Reset to default 5 royal cloths — clears all Supabase DB rows
+  // Reset — clears all DB rows and re-seeds fresh defaults
   const handleResetDefaultSlides = async () => {
     await supabase.from('hero_slides').delete().not('id', 'is', null);
+    const defaultsToInsert = DEFAULT_HERO_SLIDES.map(s => ({
+      id: s.id,
+      image_url: s.image,
+      title: s.title,
+      subtitle: s.subtitle,
+      tag: s.tag
+    }));
+    await supabase.from('hero_slides').insert(defaultsToInsert);
     setSlides(DEFAULT_HERO_SLIDES);
     setCurrentSlideIndex(0);
     showToast('Restored 5 default royal showcase cloths!');
@@ -1091,15 +1108,36 @@ export default function App() {
                             View
                           </button>
 
-                          <button 
-                            type="button" 
-                            className="admin-delete-btn"
-                            onClick={() => handleDeleteSlide(slide.id)}
-                            title="Delete this cloth from showcase"
-                          >
-                            <Trash2 size={13} />
-                            <span>Delete</span>
-                          </button>
+                          {confirmDeleteId === slide.id ? (
+                            <div style={{ display: 'flex', gap: 6, alignItems: 'center', flexWrap: 'wrap' }}>
+                              <span style={{ fontSize: '0.72rem', color: '#ef4444', fontWeight: 600 }}>Sure?</span>
+                              <button
+                                type="button"
+                                className="admin-delete-btn"
+                                onClick={() => handleDeleteSlide(slide.id)}
+                              >
+                                <Trash2 size={12} />
+                                <span>Yes, Delete</span>
+                              </button>
+                              <button
+                                type="button"
+                                className="admin-view-btn"
+                                onClick={() => setConfirmDeleteId(null)}
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          ) : (
+                            <button 
+                              type="button" 
+                              className="admin-delete-btn"
+                              onClick={() => setConfirmDeleteId(slide.id)}
+                              title="Delete this cloth from showcase"
+                            >
+                              <Trash2 size={13} />
+                              <span>Delete</span>
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
