@@ -45,7 +45,7 @@ const DEFAULT_HERO_SLIDES = [
     id: 'slide-1',
     image: `${BASE}images/hero_banner.jpg`,
     title: 'Signature Imperial Couple Suite',
-    subtitle: 'saddacloths Autumn-Winter Preview',
+    subtitle: 'sadakatcloths Autumn-Winter Preview',
     tag: 'Signature Couture Suite'
   },
   {
@@ -244,7 +244,10 @@ export default function App() {
     };
     fetchSlides();
     // Clear stale localStorage data now that Supabase is the source of truth
-    try { localStorage.removeItem('saddacloths_hero_slides'); } catch { /* ignore */ }
+    try { 
+      localStorage.removeItem('saddacloths_hero_slides'); 
+      localStorage.removeItem('sadakatcloths_hero_slides'); 
+    } catch { /* ignore */ }
   }, []);
 
   // Auto-scroll Timer
@@ -333,7 +336,7 @@ export default function App() {
       id,
       image_url: newSlide.image,
       title: newSlide.title.trim(),
-      subtitle: newSlide.subtitle.trim() || 'saddacloths Handcrafted Couture',
+      subtitle: newSlide.subtitle.trim() || 'sadakatcloths Handcrafted Couture',
       tag: newSlide.tag.trim() || 'Exclusive Collection'
     };
 
@@ -408,15 +411,15 @@ export default function App() {
       {/* Main Navigation */}
       <header className="navbar">
         <div className="navbar-container">
-          {/* Logo with saddacloths */}
+          {/* Logo with sadakatcloths */}
           <a href="#" className="brand-logo" id="brand-logo">
             <img 
-              src={`${BASE}images/watermelon_logo.png`} 
-              alt="saddacloths logo" 
-              className="logo-watermelon" 
+              src={`${BASE}images/logo.png`} 
+              alt="sadakatcloths logo" 
+              className="brand-logo-img" 
             />
             <div className="logo-text-group">
-              <span className="brand-name gold-text">saddacloths</span>
+              <span className="brand-name gold-text">sadakatcloths</span>
               <span className="brand-sub">100% ORIGINAL BRANDED READYMADE</span>
             </div>
           </a>
@@ -516,11 +519,11 @@ export default function App() {
             </div>
             
             <h1 className="hero-title">
-              Original Branded Menswear at <span className="gold-text">saddacloths</span>
+              Original Branded Menswear at <span className="gold-text">sadakatcloths</span>
             </h1>
 
             <p className="hero-description">
-              Welcome to <strong>saddacloths</strong> — your premier destination for 100% guaranteed original branded readymade clothing. Discover premium casual & formal shirts, trending t-shirts, authentic branded jeans, comfortable lowers, and stylish men's accessories curated for everyday comfort and sharp style.
+              Welcome to <strong>sadakatcloths</strong> — your premier destination for 100% guaranteed original branded readymade clothing. Discover premium casual & formal shirts, trending t-shirts, authentic branded jeans, comfortable lowers, and stylish men's accessories curated for everyday comfort and sharp style.
             </p>
 
             <div className="hero-actions">
@@ -602,7 +605,7 @@ export default function App() {
       <section className="section-container location-section" id="location">
         <div className="section-header">
           <span className="section-tag">Flagship Boutique</span>
-          <h2 className="section-title">Visit saddacloths in Person</h2>
+          <h2 className="section-title">Visit sadakatcloths in Person</h2>
           <p className="section-subtitle">
             Experience our rich fabrics in real life, touch the intricate embroidery, and enjoy personalized styling consultations at our flagship boutique.
           </p>
@@ -616,7 +619,7 @@ export default function App() {
                 <MapPin size={16} />
                 <span>Prime Fashion District</span>
               </span>
-              <h3 className="store-name">saddacloths Studio & Cloth Shop</h3>
+              <h3 className="store-name">sadakatcloths Studio & Cloth Shop</h3>
 
               <div className="store-details-list">
                 <div className="store-item">
@@ -626,7 +629,7 @@ export default function App() {
                   <div>
                     <div className="store-label">Physical Address</div>
                     <div className="store-value">
-                      <strong>saddacloths</strong><br />
+                      <strong>sadakatcloths</strong><br />
                       Shop Number 07 Nuh Rd Buraka, Chhota Golchakkar,<br />
                       Pachgaon, Tauru, Haryana 122105
                     </div>
@@ -675,7 +678,7 @@ export default function App() {
               </a>
 
               <a 
-                href="https://wa.me/918930255007?text=Hi%20saddacloths%2C%20I%20am%20planning%20to%20visit%20your%20store" 
+                href="https://wa.me/918930255007?text=Hi%20sadakatcloths%2C%20I%20am%20planning%20to%20visit%20your%20store" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="cta-secondary"
@@ -691,7 +694,7 @@ export default function App() {
           <div className="map-visual-box">
             {/* Embedded Interactive Map representation */}
             <iframe 
-              title="saddacloths Location Map"
+              title="sadakatcloths Location Map"
               src="https://maps.google.com/maps?q=Shop+Number+07+Nuh+Rd+Buraka,+Chhota+Golchakkar,+Pachgaon,+Tauru,+Haryana+122105&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               className="interactive-map-frame"
               allowFullScreen="" 
@@ -701,7 +704,7 @@ export default function App() {
             <div className="map-overlay-badge">
               <MapPin size={18} color="#d4af37" />
               <div>
-                <strong style={{ fontSize: '0.85rem' }}>saddacloths Store</strong>
+                <strong style={{ fontSize: '0.85rem' }}>sadakatcloths Store</strong>
                 <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Chhota Golchakkar, Pachgaon, Tauru</div>
               </div>
             </div>
@@ -712,7 +715,7 @@ export default function App() {
       {/* Social Media & Media Links Section */}
       <section className="social-section" id="media">
         <span className="section-tag">Connect With Us Online</span>
-        <h2 className="section-title">Follow saddacloths On Media</h2>
+        <h2 className="section-title">Follow sadakatcloths On Media</h2>
         <p className="section-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
           Explore behind-the-scenes handloom weaving, latest runway arrivals, styling tips, and real wedding captures across all our social platforms.
         </p>
@@ -736,7 +739,7 @@ export default function App() {
 
           {/* WhatsApp Direct */}
           <a 
-            href="https://wa.me/918930255007?text=Hello%20saddacloths%20team" 
+            href="https://wa.me/918930255007?text=Hello%20sadakatcloths%20team" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="social-card"
@@ -762,7 +765,7 @@ export default function App() {
               <Facebook size={28} />
             </div>
             <div className="social-title">Facebook</div>
-            <div className="social-handle">saddacloths Official</div>
+            <div className="social-handle">sadakatcloths Official</div>
             <div className="social-tagline">Community, Reviews & Events</div>
           </a>
 
@@ -778,7 +781,7 @@ export default function App() {
               <Youtube size={28} />
             </div>
             <div className="social-title">YouTube Channel</div>
-            <div className="social-handle">saddacloths Couture</div>
+            <div className="social-handle">sadakatcloths Couture</div>
             <div className="social-tagline">Artisan Stories & Fashion Films</div>
           </a>
         </div>
@@ -850,7 +853,7 @@ export default function App() {
                 </button>
 
                 <a 
-                  href={`https://wa.me/918930255007?text=Hello%20saddacloths%2C%20I%20am%20interested%20in%20${encodeURIComponent(quickViewProduct.name)}`}
+                  href={`https://wa.me/918930255007?text=Hello%20sadakatcloths%2C%20I%20am%20interested%20in%20${encodeURIComponent(quickViewProduct.name)}`}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="cta-secondary"
@@ -1165,12 +1168,12 @@ export default function App() {
             <div>
               <a href="#" className="brand-logo">
                 <img 
-                  src={`${BASE}images/watermelon_logo.png`} 
-                  alt="saddacloths logo" 
-                  className="logo-watermelon" 
+                  src={`${BASE}images/logo.png`} 
+                  alt="sadakatcloths logo" 
+                  className="brand-logo-img" 
                 />
                 <div className="logo-text-group">
-                  <span className="brand-name gold-text">saddacloths</span>
+                  <span className="brand-name gold-text">sadakatcloths</span>
                   <span className="brand-sub">100% ORIGINAL BRANDED READYMADE</span>
                 </div>
               </a>
@@ -1218,7 +1221,7 @@ export default function App() {
               </p>
               <div className="newsletter-box">
                 <input type="email" placeholder="Enter your email" className="newsletter-input" />
-                <button className="cta-button" style={{ padding: '8px 16px' }} onClick={() => showToast('Thank you for joining saddacloths VIP Circle!')}>
+                <button className="cta-button" style={{ padding: '8px 16px' }} onClick={() => showToast('Thank you for joining sadakatcloths VIP Circle!')}>
                   Join
                 </button>
               </div>
@@ -1226,7 +1229,7 @@ export default function App() {
           </div>
 
           <div className="footer-bottom">
-            <div>© {new Date().getFullYear()} saddacloths. All Rights Reserved. Mastercrafted with pride.</div>
+            <div>© {new Date().getFullYear()} sadakatcloths. All Rights Reserved. Mastercrafted with pride.</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
               <a href="#home" style={{ color: 'var(--text-dim)' }}>Privacy Policy</a>
               <a href="#home" style={{ color: 'var(--text-dim)' }}>Terms of Service</a>
