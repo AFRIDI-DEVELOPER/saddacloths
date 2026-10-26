@@ -411,15 +411,15 @@ export default function App() {
       {/* Main Navigation */}
       <header className="navbar">
         <div className="navbar-container">
-          {/* Logo with sadakatcloths */}
+          {/* Logo with sadakat clothing */}
           <a href="#" className="brand-logo" id="brand-logo">
             <img 
               src={`${BASE}images/logo.png`} 
-              alt="sadakatcloths logo" 
+              alt="sadakat clothing logo" 
               className="brand-logo-img" 
             />
             <div className="logo-text-group">
-              <span className="brand-name gold-text">sadakatcloths</span>
+              <span className="brand-name gold-text">sadakat clothing</span>
               <span className="brand-sub">100% ORIGINAL BRANDED READYMADE</span>
             </div>
           </a>
@@ -428,7 +428,9 @@ export default function App() {
           <nav>
             <ul className="nav-links">
               <li><a href="#home" className="nav-link active">Home</a></li>
-              <li><a href="#craftsmanship" className="nav-link">Craftsmanship</a></li>
+              <li><a href="#brands" className="nav-link">Brands</a></li>
+              <li><a href="#collection" className="nav-link">Collection</a></li>
+              <li><a href="#why-us" className="nav-link">Why SADAKAT</a></li>
               <li><a href="#location" className="nav-link">Store Location</a></li>
               <li><a href="#media" className="nav-link">Social Media</a></li>
             </ul>
@@ -515,15 +517,20 @@ export default function App() {
           <div className="hero-content">
             <div className="hero-tag">
               <Sparkles size={14} color="#d4af37" />
-              <span>100% Guaranteed Original Cloths</span>
+              <span>SADAKAT – The Brand Store</span>
             </div>
             
             <h1 className="hero-title">
-              Original Branded Menswear at <span className="gold-text">sadakatcloths</span>
+              Premium Men's <br />
+              <span className="gold-text">Casual Wear</span>
             </h1>
 
+            <div className="hero-tagline-gold">
+              <span>✦</span> Style Better. Wear Confidence.
+            </div>
+
             <p className="hero-description">
-              Welcome to <strong>sadakatcloths</strong> — your premier destination for 100% guaranteed original branded readymade clothing. Discover premium casual & formal shirts, trending t-shirts, authentic branded jeans, comfortable lowers, and stylish men's accessories curated for everyday comfort and sharp style.
+              At <strong>SADAKAT – The Brand Store</strong>, we bring you a premium collection of men's casual wear that combines modern style, comfort, and quality at affordable prices. From stylish denim jeans and trendy shirts to comfortable T-shirts and track pants, we offer everything you need to upgrade your everyday wardrobe.
             </p>
 
             <div className="hero-actions">
@@ -531,74 +538,201 @@ export default function App() {
                 <MapPin size={17} />
                 <span>Our Store's Location</span>
               </a>
-              <a href="tel:+918930255007" className="cta-secondary" id="hero-locate-btn">
-                <Phone size={17} />
-                <span>Call Now</span>
+              <a 
+                href="https://sadakat.xpress.site/products" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="cta-secondary" 
+                id="hero-shop-btn"
+              >
+                <ShoppingBag size={17} />
+                <span>Shop Now</span>
               </a>
             </div>
 
             <div className="hero-stats">
               <div>
                 <div className="stat-number">100%</div>
-                <div className="stat-label">Original Branded</div>
+                <div className="stat-label">Quality-Focused</div>
               </div>
               <div>
                 <div className="stat-number">Top</div>
-                <div className="stat-label">Shirts, Jeans & Lowers</div>
+                <div className="stat-label">Fashion Labels</div>
               </div>
               <div>
-                <div className="stat-number">Complete</div>
-                <div className="stat-label">Men's Accessories</div>
+                <div className="stat-number">Best</div>
+                <div className="stat-label">Value & Comfort</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust & Highlights */}
-      <div className="features-strip" id="craftsmanship">
-        <div className="features-grid">
-          <div className="feature-box">
-            <div className="feature-icon-wrapper">
-              <ShieldCheck size={24} />
-            </div>
-            <div>
-              <div className="feature-title">100% Original Brands</div>
-              <div className="feature-desc">Guaranteed authentic branded garments with genuine tags.</div>
-            </div>
+      {/* Explore Our Brands Showcase */}
+      <section className="brands-showcase-section" id="brands">
+        <div className="brands-container">
+          <div className="brands-header">
+            <span className="section-tag">Fashion Labels & Styles</span>
+            <h2 className="brands-title">Explore Our Brands</h2>
+            <p className="brands-subtitle">
+              Discover a variety of popular fashion labels and styles curated for everyday confidence:
+            </p>
+          </div>
+          
+          <div className="brands-pills-grid">
+            {[
+              'Fake & Froudy',
+              'DF',
+              'Seekar',
+              'Carl Bros',
+              'DL935',
+              'H98',
+              'HD',
+              '& Many More'
+            ].map((brand, i) => (
+              <div key={i} className="brand-pill">
+                <span className="brand-dot">✦</span>
+                <span className="brand-pill-name">{brand}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Collection Grid */}
+      <section className="section-container collection-section" id="collection">
+        <div className="section-header">
+          <span className="section-tag">Curated Menswear</span>
+          <h2 className="section-title">Our Collection</h2>
+          <p className="section-subtitle">
+            From essential denim to sharp casual shirts — upgrade your everyday wardrobe with our handpicked collection.
+          </p>
+        </div>
+
+        <div className="collections-cards-grid">
+          <div className="collection-feature-card">
+            <div className="card-emoji">👖</div>
+            <h3 className="collection-item-title">Denim Jeans</h3>
+            <p className="collection-item-desc">Trendy styles and comfortable fits engineered for daily ease, durable fabric, and sharp silhouettes.</p>
+            <a href="https://sadakat.xpress.site/products" target="_blank" rel="noopener noreferrer" className="collection-link">
+              <span>Shop Jeans</span> <ArrowRight size={15} />
+            </a>
           </div>
 
-          <div className="feature-box">
-            <div className="feature-icon-wrapper">
-              <Sparkles size={24} />
-            </div>
-            <div>
-              <div className="feature-title">Fresh Readymade Arrivals</div>
-              <div className="feature-desc">Latest trends in casual shirts, t-shirts, jeans & track lowers.</div>
-            </div>
+          <div className="collection-feature-card">
+            <div className="card-emoji">👔</div>
+            <h3 className="collection-item-title">Casual Shirts</h3>
+            <p className="collection-item-desc">Modern designs for every occasion — from weekend chill sessions to sharp dinner evenings.</p>
+            <a href="https://sadakat.xpress.site/products" target="_blank" rel="noopener noreferrer" className="collection-link">
+              <span>Shop Shirts</span> <ArrowRight size={15} />
+            </a>
           </div>
 
-          <div className="feature-box">
-            <div className="feature-icon-wrapper">
-              <ShoppingBag size={24} />
-            </div>
-            <div>
-              <div className="feature-title">Men's Accessories</div>
-              <div className="feature-desc">Complete your look with belts, wallets & essential styling picks.</div>
-            </div>
+          <div className="collection-feature-card">
+            <div className="card-emoji">👕</div>
+            <h3 className="collection-item-title">T-Shirts</h3>
+            <p className="collection-item-desc">Stylish everyday essentials crafted from soft, breathable fabrics in trending colors and graphics.</p>
+            <a href="https://sadakat.xpress.site/products" target="_blank" rel="noopener noreferrer" className="collection-link">
+              <span>Shop T-Shirts</span> <ArrowRight size={15} />
+            </a>
           </div>
 
-          <div className="feature-box">
-            <div className="feature-icon-wrapper">
-              <Star size={24} />
+          <div className="collection-feature-card">
+            <div className="card-emoji">🏃</div>
+            <h3 className="collection-item-title">Track Pants</h3>
+            <p className="collection-item-desc">Unmatched comfort and style for your daily routine, morning workouts, runs, and active lounging.</p>
+            <a href="https://sadakat.xpress.site/products" target="_blank" rel="noopener noreferrer" className="collection-link">
+              <span>Shop Track Pants</span> <ArrowRight size={15} />
+            </a>
+          </div>
+
+          <div className="collection-feature-card highlight-card">
+            <div className="card-emoji">✨</div>
+            <h3 className="collection-item-title">Men's Casual Wear</h3>
+            <p className="collection-item-desc">Fashion-forward outfits curated for every lifestyle — mix, match, and dress with sheer confidence.</p>
+            <a href="https://sadakat.xpress.site/products" target="_blank" rel="noopener noreferrer" className="collection-link">
+              <span>Explore All</span> <ArrowRight size={15} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose SADAKAT & Upgrade Your Style */}
+      <section className="section-container why-choose-section" id="why-us">
+        <div className="section-header">
+          <span className="section-tag">Quality & Confidence</span>
+          <h2 className="section-title">Why Choose SADAKAT?</h2>
+          <p className="section-subtitle">
+            Premium menswear at prices that make sense — without compromising on quality or fit.
+          </p>
+        </div>
+
+        <div className="why-choose-grid">
+          <div className="why-box">
+            <div className="why-icon-circle"><ShieldCheck size={26} /></div>
+            <h4>Quality-Focused Collection</h4>
+            <p>Quality-focused clothing collection made with durable materials and authentic brand craftsmanship.</p>
+          </div>
+
+          <div className="why-box">
+            <div className="why-icon-circle"><Sparkles size={26} /></div>
+            <h4>Trendy & Modern Designs</h4>
+            <p>Fresh fashion cuts and silhouettes keeping you ahead of modern menswear trends.</p>
+          </div>
+
+          <div className="why-box">
+            <div className="why-icon-circle"><Check size={26} /></div>
+            <h4>Comfortable Everyday Fits</h4>
+            <p>Relaxed and tailored fits designed specifically for all-day comfort in any season.</p>
+          </div>
+
+          <div className="why-box">
+            <div className="why-icon-circle"><ShoppingBag size={26} /></div>
+            <h4>Styles for Every Occasion</h4>
+            <p>Curated collections tailored for different personal tastes, casual gatherings, and events.</p>
+          </div>
+
+          <div className="why-box">
+            <div className="why-icon-circle"><Star size={26} /></div>
+            <h4>Great Value for Money</h4>
+            <p>High-end designer aesthetic and branded wear at reasonable, budget-friendly prices.</p>
+          </div>
+        </div>
+
+        {/* Upgrade Your Style Banner */}
+        <div className="upgrade-style-banner">
+          <div className="upgrade-content">
+            <span className="upgrade-pill">✨ SADAKAT – The Brand Store</span>
+            <h3 className="upgrade-title">Upgrade Your Style with SADAKAT</h3>
+            <p className="upgrade-desc">
+              Whether you're dressing for a casual outing, a day with friends, or everyday comfort, find your style at SADAKAT – The Brand Store.
+            </p>
+            <div className="upgrade-motto">
+              “Your Style. Your Comfort. Your SADAKAT.”
             </div>
-            <div>
-              <div className="feature-title">Best Value & Fit</div>
-              <div className="feature-desc">Unbeatable prices on 100% genuine readymade menswear.</div>
+            <div className="upgrade-actions">
+              <a 
+                href="https://sadakat.xpress.site/products" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="cta-button"
+              >
+                <ShoppingBag size={18} />
+                <span>Shop Online Store</span>
+              </a>
+              <a 
+                href="https://maps.app.goo.gl/8htLGcLYanC4cJ959" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="cta-secondary"
+              >
+                <MapPin size={18} />
+                <span>Find Store on Map</span>
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
 
       {/* Store Location Section */}
@@ -755,7 +889,7 @@ export default function App() {
 
           {/* Facebook */}
           <a 
-            href="https://facebook.com" 
+            href="https://www.facebook.com/share/1G9JxAUUpV/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="social-card"
@@ -765,13 +899,13 @@ export default function App() {
               <Facebook size={28} />
             </div>
             <div className="social-title">Facebook</div>
-            <div className="social-handle">sadakatcloths Official</div>
+            <div className="social-handle">Sadakat Clothing Official</div>
             <div className="social-tagline">Community, Reviews & Events</div>
           </a>
 
           {/* YouTube */}
           <a 
-            href="https://youtube.com" 
+            href="https://youtube.com/@sadakatclothing?si=rFVi-XBLqQWY0GWx" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="social-card"
@@ -781,7 +915,7 @@ export default function App() {
               <Youtube size={28} />
             </div>
             <div className="social-title">YouTube Channel</div>
-            <div className="social-handle">sadakatcloths Couture</div>
+            <div className="social-handle">@sadakatclothing</div>
             <div className="social-tagline">Artisan Stories & Fashion Films</div>
           </a>
         </div>
@@ -1169,11 +1303,11 @@ export default function App() {
               <a href="#" className="brand-logo">
                 <img 
                   src={`${BASE}images/logo.png`} 
-                  alt="sadakatcloths logo" 
+                  alt="sadakat clothing logo" 
                   className="brand-logo-img" 
                 />
                 <div className="logo-text-group">
-                  <span className="brand-name gold-text">sadakatcloths</span>
+                  <span className="brand-name gold-text">sadakat clothing</span>
                   <span className="brand-sub">100% ORIGINAL BRANDED READYMADE</span>
                 </div>
               </a>

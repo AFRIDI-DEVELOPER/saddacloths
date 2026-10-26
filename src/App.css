@@ -1691,3 +1691,275 @@
     font-size: 0.7rem;
   }
 }
+
+/* ===================================================
+   SADAKAT – THE BRAND STORE ENHANCED LAYOUT STYLES
+   =================================================== */
+
+.hero-tagline-gold {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  margin-top: -10px;
+  margin-bottom: 18px;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Brands Showcase Section */
+.brands-showcase-section {
+  padding: 50px 24px;
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.04) 0%, rgba(13, 17, 23, 0.9) 100%);
+  border-top: 1px solid var(--border-gold);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+.brands-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.brands-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.brands-title {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.brands-subtitle {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.brands-pills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 24px;
+}
+.brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  transition: all var(--transition-fast);
+  cursor: default;
+}
+.brand-pill:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: rgba(212, 175, 55, 0.12);
+  border-color: var(--gold-light);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
+}
+.brand-dot {
+  color: var(--gold-primary);
+  font-size: 0.75rem;
+}
+.brand-pill-name {
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.04em;
+  font-size: 0.98rem;
+}
+
+/* Our Collection Grid */
+.collection-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.collections-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+.collection-feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.collection-feature-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(212, 175, 55, 0.15);
+}
+.collection-feature-card.highlight-card {
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.12) 0%, rgba(13, 17, 23, 0.9) 100%);
+  border-color: rgba(212, 175, 55, 0.45);
+}
+.card-emoji {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.collection-item-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.collection-item-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+.collection-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold-light);
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: all 0.25s ease;
+}
+.collection-link:hover {
+  gap: 12px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+/* Why Choose SADAKAT Section */
+.why-choose-section {
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+.why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 22px;
+  margin-top: 36px;
+  margin-bottom: 50px;
+}
+.why-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 26px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.why-box:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.12);
+}
+.why-icon-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.15);
+}
+.why-box h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.why-box p {
+  font-size: 0.86rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+/* Upgrade Your Style with SADAKAT Banner */
+.upgrade-style-banner {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.16) 0%, rgba(13, 17, 23, 0.98) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 24px;
+  padding: 50px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 45px rgba(212, 175, 55, 0.15);
+}
+.upgrade-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.upgrade-pill {
+  display: inline-block;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.upgrade-title {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.upgrade-desc {
+  font-size: 1.08rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+.upgrade-motto {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--gold-light);
+  letter-spacing: 0.04em;
+  margin-bottom: 32px;
+  text-shadow: 0 2px 14px rgba(212, 175, 55, 0.3);
+}
+.upgrade-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .upgrade-title {
+    font-size: 2rem;
+  }
+  .upgrade-motto {
+    font-size: 1.3rem;
+  }
+  .brands-title {
+    font-size: 1.9rem;
+  }
+}
+
